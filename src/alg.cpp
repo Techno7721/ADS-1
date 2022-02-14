@@ -25,33 +25,37 @@ bool checkPrime(uint64_t value) {
 }
 
 uint64_t nPrime(uint64_t n) {
+    uint64_t k = 0;
     int brerak = 0;
     if (n == 1) {
         return 2;
     }
     if (n == 2) {
         return 3;
-    }
-    bool r = true;
-    uint64_t i = 3;
-    uint64_t count = 2;
-    while (r) {
-        i += 1;
-        for (uint64_t j = 2; j < i; ++j) {
-            if ((i % j) == 0) {
-                brerak = 1;
-                break;
+    } else {
+        uint64_t i = 3;
+        uint64_t count = 2;
+        while (true) {
+            i += 1;
+            for (uint64_t j = 2; j < i; ++j) {
+                if ((i % j) == 0) {
+                    brerak = 1;
+                    break;
+                }
             }
-        }
-        if (brerak == 0) {
-            count += 1;
-            if (count == n) {
-                return i;
-                r = false;
+            if (brerak == 0) {
+                count += 1;
+                if (count == n) {
+                    k = i;
+                    goto breaak;
+                    
+                }
             }
+            brerak = 0;
         }
-        brerak = 0;
     }
+    breaak:
+    return k;
 }
 
 uint64_t nextPrime(uint64_t value) {
@@ -67,11 +71,13 @@ uint64_t nextPrime(uint64_t value) {
             }
         }
         if (brerak == 0) {
-            return i;
+            goto breaak;
             r = false;
         }
         brerak = 0;
     }
+    breaak:
+    return i;
 }
 
 uint64_t sumPrime(uint64_t hbound) {
