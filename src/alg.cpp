@@ -4,7 +4,7 @@
 
 
 bool checkPrime(uint64_t value) {
-    if (value == 1) {
+    if (value <= 1) {
         return false;
     }
     int brerak = 0;
@@ -51,21 +51,21 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
- int brerak = 0;
- uint64_t i = value;
- while (true) {
-  i += 1;
-  for (uint64_t j = 2; j < i; ++j) {
-   if ((i % j) == 0) {
-    brerak = 1;
-    break;
-   }
-  }
-  if (brerak == 0) {
-   return i;
-  }
-  brerak = 0;
- }
+    int brerak = 0;
+    uint64_t i = value;
+    while (true) {
+        i += 1;
+        for (uint64_t j = 2; j < i; ++j) {
+            if ((i % j) == 0) {
+                brerak = 1;
+                break;
+            }
+        }
+        if (brerak == 0) {
+            return i;
+        }
+        brerak = 0;
+    }
 }
 
 uint64_t sumPrime(uint64_t hbound) {
