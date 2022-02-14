@@ -48,7 +48,6 @@ uint64_t nPrime(uint64_t n) {
                 if (count == n) {
                     k = i;
                     goto breaak;
-                    
                 }
             }
             brerak = 0;
