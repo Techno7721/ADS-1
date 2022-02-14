@@ -32,9 +32,10 @@ uint64_t nPrime(uint64_t n) {
     if (n == 2) {
         return 3;
     }
+    bool r = true;
     uint64_t i = 3;
     uint64_t count = 2;
-    while (true) {
+    while (r) {
         i += 1;
         for (uint64_t j = 2; j < i; ++j) {
             if ((i % j) == 0) {
@@ -46,6 +47,7 @@ uint64_t nPrime(uint64_t n) {
             count += 1;
             if (count == n) {
                 return i;
+                r = false;
             }
         }
         brerak = 0;
@@ -53,9 +55,10 @@ uint64_t nPrime(uint64_t n) {
 }
 
 uint64_t nextPrime(uint64_t value) {
+    bool r = true;
     int brerak = 0;
     uint64_t i = value;
-    while (true) {
+    while (r) {
         i += 1;
         for (uint64_t j = 2; j < i; ++j) {
             if ((i % j) == 0) {
@@ -65,6 +68,7 @@ uint64_t nextPrime(uint64_t value) {
         }
         if (brerak == 0) {
             return i;
+            r = false;
         }
         brerak = 0;
     }
