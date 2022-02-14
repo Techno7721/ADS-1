@@ -7,6 +7,9 @@ bool checkPrime(uint64_t value) {
     if (value <= 1) {
         return false;
     }
+    if (value == 2) {
+        return true;
+    }
     int brerak = 0;
     for (uint64_t i = 2; i < value; ++i) {
         if ((value % i) == 0) {
@@ -14,10 +17,9 @@ bool checkPrime(uint64_t value) {
             break;
         }
     }
-    if ((brerak == 0) || (value == 2)) {
+    if (brerak == 0) {
         return true;
-    }
-    if (brerak == 1) {
+    } else {
         return false;
     }
 }
