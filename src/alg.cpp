@@ -47,21 +47,19 @@ uint64_t nPrime(uint64_t n) {
                 count += 1;
                 if (count == n) {
                     k = i;
-                    goto breaak;
+                    break;
                 }
             }
             brerak = 0;
         }
     }
-    breaak:
     return k;
 }
 
 uint64_t nextPrime(uint64_t value) {
-    bool r = true;
     int brerak = 0;
     uint64_t i = value;
-    while (r) {
+    while (true) {
         i += 1;
         for (uint64_t j = 2; j < i; ++j) {
             if ((i % j) == 0) {
@@ -70,12 +68,10 @@ uint64_t nextPrime(uint64_t value) {
             }
         }
         if (brerak == 0) {
-            goto breaak;
-            r = false;
+            break;
         }
         brerak = 0;
     }
-    breaak:
     return i;
 }
 
